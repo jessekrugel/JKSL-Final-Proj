@@ -31,8 +31,8 @@ bool Person::tick(int currentTime) {
     return angerLevel >= MAX_ANGER;
 }
 
-void Person::print(ostream &outs) {    
-    //TODO: Implement print
+void Person::print(ostream &outs) {
+    outs << "f" << currentFloor << "t" << targetFloor << "a" << angerLevel;
 }
 
 //////////////////////////////////////////////////////
