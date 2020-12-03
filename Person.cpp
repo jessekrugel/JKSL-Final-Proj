@@ -7,7 +7,20 @@ using namespace std;
 
 Person::Person(string input_string) : Person() {
     //TODO: Implement non-default constructor
-    //TESTTTTTTTTTT
+    string input = input_string;
+    stringstream ss(input);
+    
+    char f;
+    char t;
+    char a;
+    
+    ss >> turn;
+    ss >> f;
+    ss >> currentFloor;
+    ss >> t;
+    ss >> targetFloor;
+    ss >> a;
+    ss >> angerLevel;
 }
 
 bool Person::tick(int currentTime) {
