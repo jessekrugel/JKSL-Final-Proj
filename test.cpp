@@ -6,7 +6,14 @@
 using namespace std;
 
 // write your test functions here
+void test_Person();
 
 void start_tests() {
-    // call your test functions here
+    test_Person();
+}
+
+void test_Person()
+{
+    Person guy;
+    cout << guy << endl;
 }
