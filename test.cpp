@@ -16,4 +16,6 @@ void test_Person()
 {
     Person guy;
     cout << guy << endl;
+    Person dude = Person("3f4t8a1");
+    cout << dude << endl;
 }
