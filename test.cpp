@@ -16,7 +16,9 @@ void test_Person()
 {
     //Default Constuctor
     Person guy;
-    cout << guy << endl;
+    cout << "Expected: f0t0a0, Actual: " << guy << endl;
+    
+    //Non-default Constructor
     Person dude = Person("3f4t8a1");
-    cout << dude << endl;
+    cout << "Expected: f4t8a1, Actual: "<< dude << endl;
 }
