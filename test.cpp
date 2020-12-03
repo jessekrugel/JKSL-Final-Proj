@@ -14,6 +14,7 @@ void start_tests() {
 
 void test_Person()
 {
+    //Default Constuctor
     Person guy;
     cout << guy << endl;
 }
