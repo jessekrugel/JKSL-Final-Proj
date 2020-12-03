@@ -11,10 +11,11 @@ Person::Person(string input_string) : Person() {
 }
 
 bool Person::tick(int currentTime) {
-    //TODO: Implement tick
-
-    //Returning false to prevent compilation error
-    return false;
+    if (TICKS_PER_ANGER_INCREASE % currentTime == 0)
+    {
+        angerLevel++;
+    }
+    return angerLevel >= MAX_ANGER;
 }
 
 void Person::print(ostream &outs) {    
