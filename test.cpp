@@ -26,11 +26,13 @@ void test_Person()
     //Non-default Constructor
     Person dude = Person("3f4t8a1");
     cout << "Expected: f4t8a1, Actual: "<< dude << endl;
+    cout << endl;
 }
 
 void test_Elevator()
 {
     //Default COnstructor
+    cout << "Now testing the Elevator class!" << endl;
     Elevator Elevator1;
     cout << "Expected: 000, Actual: ";
     cout << Elevator1.getCurrentFloor() << Elevator1.isServicing()
@@ -43,9 +45,7 @@ void test_Elevator()
     Elevator1.tick(4);
     cout << "Expected: 21, Actual: " << Elevator1.getCurrentFloor()
         << Elevator1.isServicing() << endl;
-    
-    
-    
+    cout << endl;
 }
 
 void test_Floor()
@@ -77,4 +77,5 @@ void test_Floor()
     {
         cout << floor.getPersonByIndex(i) << endl;
     }
+    cout << endl;
 }
