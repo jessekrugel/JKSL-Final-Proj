@@ -3,10 +3,18 @@
 using namespace std;
 
 int Floor::tick(int currentTime) {
-    //TODO: Implement tick
-
-    //returning 0 to prevent compilation error
-    return 0;
+    int exploded[numPeople];
+    int index = 0;
+    for (int i = 0; i < numPeople; i++)
+    {
+        if (people[i].tick(currentTime))
+        {
+            exploded[index] = i;
+            index++;
+        }
+    }
+    removePeople(exploded, index);
+    return index;
 }
 
 void Floor::addPerson(Person p, int request) {
