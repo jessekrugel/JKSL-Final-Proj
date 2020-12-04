@@ -32,7 +32,17 @@ void Floor::addPerson(Person p, int request) {
 
 void Floor::removePeople(int indicesToRemove[MAX_PEOPLE_PER_FLOOR],
                          int numPeopleToRemove) {
-    //TODO: Implement removePeople
+    int removeCounter = 0;
+    for (int i = 0; i < numPeopleToRemove; i++)
+    {
+        int personToRemove = indicesToRemove[i];
+        for (int j = personToRemove; j < numPeople - 1; j++)
+        {
+            people[j] = people[j + 1 - removeCounter];
+        }
+        removeCounter++;
+        numPeople--;
+    }
 }
 
 void Floor::resetRequests() {

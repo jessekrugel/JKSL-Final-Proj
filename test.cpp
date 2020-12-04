@@ -7,9 +7,13 @@ using namespace std;
 
 // write your test functions here
 void test_Person();
+void test_Elevator();
+void test_Floor();
 
 void start_tests() {
     test_Person();
+    test_Elevator();
+    test_Floor();
 }
 
 void test_Person()
@@ -21,4 +25,14 @@ void test_Person()
     //Non-default Constructor
     Person dude = Person("3f4t8a1");
     cout << "Expected: f4t8a1, Actual: "<< dude << endl;
+}
+
+void test_Elevator()
+{
+    
+}
+
+void test_Floor()
+{
+    
 }
