@@ -12,7 +12,7 @@ void Elevator::tick(int currentTime) {
         else if (targetFloor > currentFloor){
             currentFloor++;
         }
-        else if (targetFloor == currentFloor){
+        if (targetFloor == currentFloor){
             servicing = false;
         }
     }
