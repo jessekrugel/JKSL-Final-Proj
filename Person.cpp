@@ -24,7 +24,7 @@ Person::Person(string input_string) : Person() {
 }
 
 bool Person::tick(int currentTime) {
-    if (TICKS_PER_ANGER_INCREASE % currentTime == 0)
+    if (currentTime % TICKS_PER_ANGER_INCREASE == 0)
     {
         angerLevel++;
     }
