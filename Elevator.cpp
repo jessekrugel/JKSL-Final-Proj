@@ -19,9 +19,16 @@ void Elevator::tick(int currentTime) {
 }
 
 void Elevator::serviceRequest(int floorNum) {
-    //TODO: Implement serviceRequest
+    targetFloor = floorNum;
+    if (currentFloor != targetFloor)
+    {
+        servicing = true;
+    }
+    else
+    {
+        servicing = false;
+    }
 }
-//Jesse was HERE!!
 
 //////////////////////////////////////////////////////
 ////// DO NOT MODIFY ANY CODE BENEATH THIS LINE //////
