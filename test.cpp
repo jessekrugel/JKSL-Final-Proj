@@ -29,6 +29,21 @@ void test_Person()
 
 void test_Elevator()
 {
+    //Default COnstructor
+    Elevator Elevator1;
+    cout << "Expected: 000, Actual: ";
+    cout << Elevator1.getCurrentFloor() << Elevator1.isServicing()
+         << Elevator1.getTargetFloor() << endl;
+    
+    //Tick
+    Elevator1.setCurrentFloor(3);
+    Elevator1.serviceRequest(0);
+    Elevator1.isServicing();
+    Elevator1.tick(4);
+    cout << "Expected: 21, Actual: " << Elevator1.getCurrentFloor()
+        << Elevator1.isServicing() << endl;
+    
+    
     
 }
 
