@@ -36,9 +36,9 @@ void Floor::removePeople(int indicesToRemove[MAX_PEOPLE_PER_FLOOR],
     for (int i = 0; i < numPeopleToRemove; i++)
     {
         int personToRemove = indicesToRemove[i];
-        for (int j = personToRemove; j < numPeople - 1; j++)
+        for (int j = personToRemove - removeCounter; j < numPeople - 1; j++)
         {
-            people[j] = people[j + 1 - removeCounter];
+            people[j] = people[j + 1];
         }
         removeCounter++;
         numPeople--;
