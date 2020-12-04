@@ -9,10 +9,10 @@ void Elevator::tick(int currentTime) {
         if (targetFloor < currentFloor){
             currentFloor--;
         }
-        if (targetFloor > currentFloor){
+        else if (targetFloor > currentFloor){
             currentFloor++;
         }
-        if (targetFloor == currentFloor){
+        else if (targetFloor == currentFloor){
             servicing = false;
         }
     }
