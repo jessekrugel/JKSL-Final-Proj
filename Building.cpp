@@ -3,7 +3,9 @@
 using namespace std;
 
 void Building::spawnPerson(Person newPerson){
-    //TODO: Implement spawnPerson
+    int floorNum = newPerson.getCurrentFloor();
+    int request = newPerson.getTargetFloor() - newPerson.getCurrentFloor();
+    floors[floorNum].addPerson(newPerson, request);
 }
 
 void Building::update(Move move){
