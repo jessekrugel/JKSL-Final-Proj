@@ -12,9 +12,18 @@ void Building::update(Move move){
 
 int Building::tick(Move move){
     //TODO: Implement tick
-
+    time++;
+    update(move);
+    for(int i = 0; i < NUM_ELEVATORS; i++) {
+        elevators[i].tick(time);
+    }
+    int total = 0;
+    for (int j = 0; j < NUM_FLOORS; j++) {
+        total += floors[j].tick(time);
+    }
+    
     //returning 0 to prevent compilation error
-    return 0;
+    return total;
 }
 
 //////////////////////////////////////////////////////
