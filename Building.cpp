@@ -9,7 +9,12 @@ void Building::spawnPerson(Person newPerson){
 }
 
 void Building::update(Move move){
-    //TODO: Implement update
+    if (move.isPickupMove())
+    {
+        int toPickup[MAX_PEOPLE_PER_FLOOR];
+        move.copyListOfPeopleToPickup(toPickup);
+        floors[].removePeople(toPickup, move.getNumPeopleToPickup());
+    }
 }
 
 int Building::tick(Move move){
