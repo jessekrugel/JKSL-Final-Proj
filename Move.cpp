@@ -7,13 +7,56 @@
 using namespace std;
 
 Move::Move(string commandString) : Move() {
-    //TODO: Implement non-default constructor
+    if (commandString == "")
+    {
+        isPass = true;
+    }
+    char firstLetter = commandString.at(0);
+    // converts upper case letters to lower
+    if (firstLetter >= 65)
+    {
+        firstLetter += 32;
+    }
+    if (firstLetter == 's')
+    {
+        isSave = true;
+    }
+    else if (firstLetter == 'q')
+    {
+        isQuit = true;
+    }
+    
+    int elevatorNum = commandString.at(1);
+    char secondLetter = commandString.at(2);
+    // converts upper case letters to lower
+    if (secondLetter >= 65)
+    {
+        secondLetter += 32;
+    }
+    if (secondLetter == 'p')
+    {
+        isPickup = true;
+        elevatorId = elevatorNum;
+    }
+    else if (secondLetter == 'f')
+    {
+        elevatorId = elevatorNum;
+        targetFloor = commandString.at(3);
+    }
 }
 
 bool Move::isValidMove(Elevator elevators[NUM_ELEVATORS]) const {
-    //TODO: Implement isValidMove
-    
-    //Returning false to prevent compilation error
+    if (isPass || isSave || isQuit)
+    {
+        return true;
+    }
+    if (isPickup || (elevatorId != -1))
+    {
+        if ((elevatorId >= 0) && (elevatorId < NUM_ELEVATORS) && elevators[elevatorId].isServicing())
+        {
+            return true;
+        }
+    }
     return false;
 }
 
