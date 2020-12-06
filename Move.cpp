@@ -7,42 +7,45 @@
 using namespace std;
 
 Move::Move(string commandString) : Move() {
-    if (commandString == "")
+    if (commandString.length() == 0)
     {
         isPass = true;
     }
-    char firstLetter = commandString.at(0);
-    // converts upper case letters to lower
-    if ((firstLetter >= 65) && (firstLetter < 97))
+    else
     {
-        firstLetter += 32;
-    }
-    if (firstLetter == 's')
-    {
-        isSave = true;
-    }
-    else if (firstLetter == 'q')
-    {
-        isQuit = true;
-    }
-    if (commandString.length() > 2)
-    {
-        int elevatorNum = commandString.at(1) - 48;
-        char secondLetter = commandString.at(2);
+        char firstLetter = commandString.at(0);
         // converts upper case letters to lower
-        if ((secondLetter >= 65) && (secondLetter < 97))
+        if ((firstLetter >= 65) && (firstLetter < 97))
         {
-            secondLetter += 32;
+            firstLetter += 32;
         }
-        if (secondLetter == 'p')
+        if (firstLetter == 's')
         {
-            isPickup = true;
-            elevatorId = elevatorNum;
+            isSave = true;
         }
-        else if (secondLetter == 'f')
+        else if (firstLetter == 'q')
         {
-            elevatorId = elevatorNum;
-            targetFloor = commandString.at(3) - 48;
+            isQuit = true;
+        }
+        if (commandString.length() > 2)
+        {
+            int elevatorNum = commandString.at(1) - 48;
+            char secondLetter = commandString.at(2);
+            // converts upper case letters to lower
+            if ((secondLetter >= 65) && (secondLetter < 97))
+            {
+                secondLetter += 32;
+            }
+            if (secondLetter == 'p')
+            {
+                isPickup = true;
+                elevatorId = elevatorNum;
+            }
+            else if (secondLetter == 'f')
+            {
+                elevatorId = elevatorNum;
+                targetFloor = commandString.at(3) - 48;
+            }
         }
     }
 }
