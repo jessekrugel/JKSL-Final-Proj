@@ -146,4 +146,10 @@ void test_Move()
     cout << "Expected: 1, Actual: ";
     cout << move6.isSaveMove() << endl;
     
+    Elevator ele1 = Elevator();
+    ele1.setCurrentFloor(1);
+    Elevator ele2 = Elevator();
+    ele2.setCurrentFloor(2);
+    Elevator elevators[] = {ele1, ele2};
+    cout << move1.isValidMove(elevators) << endl;
 }
