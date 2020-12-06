@@ -78,13 +78,13 @@ void Move::setPeopleToPickup(const string& pickupList, const int currentFloor,
     totalSatisfaction = 0;
     
     for (int i = 0; i < pickupList.length(); i++) {
-        int index = pickupList.at(i);
+        int index = pickupList.at(i) - 48;
         peopleToPickup[i] += index;
         numPeopleToPickup++;
         
         Person person1 = pickupFloor.getPersonByIndex(index);
         int angerLevel = person1.getAngerLevel();
-        totalSatisfaction += MAX_ANGER - angerLevel;
+        totalSatisfaction += (MAX_ANGER - angerLevel);
     }
     
     int furthestTravel = 0;
