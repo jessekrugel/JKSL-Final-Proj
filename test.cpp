@@ -106,7 +106,7 @@ void test_Building()
     {
         cout << floor.getPersonByIndex(i) << endl;
     }
-    
+    cout << endl;
     
     
     
