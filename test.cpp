@@ -15,9 +15,9 @@ void test_Move();
 void start_tests() {
     //test_Person();
     //test_Elevator();
-    test_Floor();
+    //test_Floor();
     //test_Building();
-    //test_Move();
+    test_Move();
 }
 
 void test_Person()
@@ -154,6 +154,13 @@ void test_Move()
     Move move6 = Move("s");
     cout << "Expected: 1, Actual: ";
     cout << move6.isSaveMove() << endl;
+    
+    Floor floor;
+    Move move7;
+    move7.setPeopleToPickup("123",2,floor);
+    cout << move7.getElevatorId() << move7.getTargetFloor()
+         << move7.getNumPeopleToPickup() << move7.getTotalSatisfaction();
+    
     
     Elevator ele1 = Elevator();
     ele1.setCurrentFloor(1);
