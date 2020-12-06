@@ -91,13 +91,13 @@ void Move::setPeopleToPickup(const string& pickupList, const int currentFloor,
     
     for (int j = 0; j < numPeopleToPickup; j++){
         Person person = pickupFloor.getPersonByIndex(j);
-        int targetFloor = person.getTargetFloor();
+        int tempTargetFloor = person.getTargetFloor();
         int difference = 0;
-        difference = abs(targetFloor - currentFloor);
+        difference = abs(tempTargetFloor - currentFloor);
         if (difference > furthestTravel){
             furthestTravel = difference;
         }
-        setTargetFloor(furthestTravel);
+        targetFloor = furthestTravel;
     }
     
 }
