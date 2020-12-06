@@ -16,8 +16,8 @@ void start_tests() {
     //test_Person();
     //test_Elevator();
     //test_Floor();
-    test_Building();
-    //test_Move();
+    //test_Building();
+    test_Move();
 }
 
 void test_Person()
@@ -239,8 +239,8 @@ void test_Move()
     floor3.addPerson(p9, 2);
     floor3.addPerson(p10, 1);
     Move move9;
-    move9.setPeopleToPickup("014",3,floor3);
-    cout << "Expected: -1 1 3 22, Actual: ";
+    move9.setPeopleToPickup("013",3,floor3);
+    cout << "Expected: -1 5 3 22, Actual: ";
     cout << move9.getElevatorId() << " " << move9.getTargetFloor() << " "
          << move9.getNumPeopleToPickup() << " "
          << move9.getTotalSatisfaction() << endl;
