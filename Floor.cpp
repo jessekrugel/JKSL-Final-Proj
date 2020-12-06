@@ -35,7 +35,7 @@ void Floor::addPerson(Person p, int request) {
 
 void Floor::removePeople(int indicesToRemove[MAX_PEOPLE_PER_FLOOR],
                          int numPeopleToRemove) {
-    sort(0, indicesToRemove[MAX_PEOPLE_PER_FLOOR]);
+    sort(0, numPeopleToRemove, indicesToRemove);
     int removeCounter = 0;
     for (int i = 0; i < numPeopleToRemove; i++)
     {
