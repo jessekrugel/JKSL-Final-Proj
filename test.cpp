@@ -136,17 +136,35 @@ void test_Building()
     Building building;
     Floor floor;
     Move move = Move("e1f4");
-    Person p0 = Person("3f4t8a1");
-    Person p1 = Person("5f4t2a4");
-    Person p2 = Person("5f4t5a2");
+    building.setElevator("4s4", 1);
+    while(building.getElevatorById(1).getCurrentFloor() != 4)
+    {
+        building.tick(move);
+    }
+    Move move2 = Move("e1p");
+    Person p0 = Person("3f4t8a10");
+    Person p1 = Person("5f4t2a9");
+    Person p2 = Person("5f4t5a10");
     Person p3 = Person("5f4t7a5");
     Person p4 = Person("5f4t1a4");
     floor.addPerson(p0, 4);
-    floor.addPerson(p1, -2);
-    floor.addPerson(p2, 1);
-    floor.addPerson(p3, 3);
-    floor.addPerson(p4, 3);
-    cout << building.tick(move);
+    floor.addPerson(p1,-2);
+    floor.addPerson(p2,1);
+    floor.addPerson(p3,3);
+    floor.addPerson(p4,-3);
+    building.spawnPerson(p0);
+    building.spawnPerson(p1);
+    building.spawnPerson(p2);
+    building.spawnPerson(p3);
+    building.spawnPerson(p4);
+    
+    move2.setPeopleToPickup("13", 4, floor);
+    cout << building.tick(move2) << endl;
+    for (int i = 0; i < floor.getNumPeople(); i++)
+    {
+        cout << floor.getPersonByIndex(i) << endl;
+    }
+    
     
     
     
