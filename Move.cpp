@@ -25,23 +25,25 @@ Move::Move(string commandString) : Move() {
     {
         isQuit = true;
     }
-    
-    int elevatorNum = commandString.at(1) - 48;
-    char secondLetter = commandString.at(2);
-    // converts upper case letters to lower
-    if ((secondLetter >= 65) && (secondLetter < 97))
+    if (commandString.length() > 2)
     {
-        secondLetter += 32;
-    }
-    if (secondLetter == 'p')
-    {
-        isPickup = true;
-        elevatorId = elevatorNum;
-    }
-    else if (secondLetter == 'f')
-    {
-        elevatorId = elevatorNum;
-        targetFloor = commandString.at(3) - 48;
+        int elevatorNum = commandString.at(1) - 48;
+        char secondLetter = commandString.at(2);
+        // converts upper case letters to lower
+        if ((secondLetter >= 65) && (secondLetter < 97))
+        {
+            secondLetter += 32;
+        }
+        if (secondLetter == 'p')
+        {
+            isPickup = true;
+            elevatorId = elevatorNum;
+        }
+        else if (secondLetter == 'f')
+        {
+            elevatorId = elevatorNum;
+            targetFloor = commandString.at(3) - 48;
+        }
     }
 }
 

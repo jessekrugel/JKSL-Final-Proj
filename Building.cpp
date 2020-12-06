@@ -17,7 +17,8 @@ void Building::update(Move move){
         int currFloor = elevators[currElevator].getCurrentFloor();
         floors[currFloor].removePeople(toPickup, move.getNumPeopleToPickup());
     }
-    if ((move.isPickupMove()) || (move.getElevatorId() != -1))
+    if ((move.isPickupMove()) ||
+        ((move.getElevatorId() != -1) && (move.getTargetFloor() > 0)))
     {
         elevators[move.getElevatorId()].serviceRequest(move.getTargetFloor());
         elevators[move.getElevatorId()].tick(time);
