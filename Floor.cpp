@@ -49,9 +49,11 @@ void Floor::resetRequests() {
     for (int i = 0; i < numPeople; i++) {
         if (people[i].getTargetFloor() - people[i].getCurrentFloor() > 0) {
             hasUpRequest = true;
+            hasDownRequest = false;
         }
         else if (people[i].getTargetFloor() - people[i].getCurrentFloor() < 0) {
             hasDownRequest = true;
+            hasUpRequest = false;
         }
     }
 
