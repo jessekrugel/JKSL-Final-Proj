@@ -16,8 +16,8 @@ void start_tests() {
     //test_Person();
     //test_Elevator();
     //test_Floor();
-    //test_Building();
-    test_Move();
+    test_Building();
+    //test_Move();
 }
 
 void test_Person()
@@ -135,6 +135,7 @@ void test_Building()
     //Testing spawnPerson()
     Building building;
     Floor floor;
+    Move move = Move("e1f4");
     Person p0 = Person("3f4t8a1");
     Person p1 = Person("5f4t2a4");
     Person p2 = Person("5f4t5a2");
@@ -144,13 +145,9 @@ void test_Building()
     floor.addPerson(p1, -2);
     floor.addPerson(p2, 1);
     floor.addPerson(p3, 3);
-    building.spawnPerson(p4);
+    floor.addPerson(p4, 3);
+    cout << building.tick(move);
     
-    for (int i = 0; i < floor.getNumPeople(); i++)
-    {
-        cout << floor.getPersonByIndex(i) << endl;
-    }
-    cout << endl;
     
     
     
