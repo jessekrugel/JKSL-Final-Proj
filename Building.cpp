@@ -13,7 +13,8 @@ void Building::update(Move move){
     {
         int toPickup[MAX_PEOPLE_PER_FLOOR];
         move.copyListOfPeopleToPickup(toPickup);
-        int currFloor = move.getElevatorId();
+        int currElevator = move.getElevatorId();
+        int currFloor = elevators[currElevator].getCurrentFloor();
         floors[currFloor].removePeople(toPickup, move.getNumPeopleToPickup());
     }
     if ((move.isPickupMove()) || (move.getElevatorId() != -1))
