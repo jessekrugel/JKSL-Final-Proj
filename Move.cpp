@@ -79,10 +79,10 @@ void Move::setPeopleToPickup(const string& pickupList, const int currentFloor,
     
     for (int i = 0; i < pickupList.length(); i++) {
         int index = pickupList.at(i) - 48;
-        peopleToPickup[i] += index;
+        peopleToPickup[i] = index;
         numPeopleToPickup++;
         
-        Person person1 = pickupFloor.getPersonByIndex(index);
+        Person person1 = pickupFloor.getPersonByIndex(i);
         int angerLevel = person1.getAngerLevel();
         totalSatisfaction += (MAX_ANGER - angerLevel);
     }
@@ -95,7 +95,7 @@ void Move::setPeopleToPickup(const string& pickupList, const int currentFloor,
         int difference = 0;
         difference = abs(tempTargetFloor - currentFloor);
         if (difference > furthestTravel){
-            furthestTravel = difference;
+            furthestTravel = tempTargetFloor;
         }
         targetFloor = furthestTravel;
     }
