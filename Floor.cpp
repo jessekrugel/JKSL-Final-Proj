@@ -55,6 +55,7 @@ void Floor::removePeople(int indicesToRemove[MAX_PEOPLE_PER_FLOOR],
         removeCounter++;
         numPeople--;
     }
+    resetRequests();
 }
 
 void Floor::resetRequests() {
