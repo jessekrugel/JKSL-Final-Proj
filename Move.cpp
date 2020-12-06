@@ -13,7 +13,7 @@ Move::Move(string commandString) : Move() {
     }
     char firstLetter = commandString.at(0);
     // converts upper case letters to lower
-    if (firstLetter >= 65)
+    if ((firstLetter >= 65) && (firstLetter < 97))
     {
         firstLetter += 32;
     }
@@ -26,10 +26,10 @@ Move::Move(string commandString) : Move() {
         isQuit = true;
     }
     
-    int elevatorNum = commandString.at(1);
+    int elevatorNum = commandString.at(1) - 48;
     char secondLetter = commandString.at(2);
     // converts upper case letters to lower
-    if (secondLetter >= 65)
+    if ((secondLetter >= 65) && (secondLetter < 97))
     {
         secondLetter += 32;
     }
@@ -41,7 +41,7 @@ Move::Move(string commandString) : Move() {
     else if (secondLetter == 'f')
     {
         elevatorId = elevatorNum;
-        targetFloor = commandString.at(3);
+        targetFloor = commandString.at(3) - 48;
     }
 }
 

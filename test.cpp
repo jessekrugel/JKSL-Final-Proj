@@ -13,10 +13,10 @@ void test_Building();
 void test_Move();
 
 void start_tests() {
-    test_Person();
-    test_Elevator();
-    test_Floor();
-    test_Building();
+    //test_Person();
+    //test_Elevator();
+    //test_Floor();
+    //test_Building();
     test_Move();
 }
 
@@ -121,4 +121,6 @@ void test_Move()
     cout << "Expected: 0000, Actual: ";
     cout << move.getElevatorId() << move.getTargetFloor()
          << move.getNumPeopleToPickup() << move.getTotalSatisfaction() << endl;
+    Move move1 = Move("e1f3");
+    cout << move1.getElevatorId() << move1.getTargetFloor() << endl;
 }
