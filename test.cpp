@@ -10,12 +10,14 @@ void test_Person();
 void test_Elevator();
 void test_Floor();
 void test_Building();
+void test_Move();
 
 void start_tests() {
     test_Person();
     test_Elevator();
     test_Floor();
     test_Building();
+    test_Move();
 }
 
 void test_Person()
@@ -110,4 +112,13 @@ void test_Building()
     
     
     
+}
+void test_Move()
+{
+    //Default Constructor
+    cout << "Now testing the Move class!" << endl;
+    Move move;
+    cout << "Expected: 0000, Actual: ";
+    cout << move.getElevatorId() << move.getTargetFloor()
+         << move.getNumPeopleToPickup() << move.getTotalSatisfaction() << endl;
 }
