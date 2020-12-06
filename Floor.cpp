@@ -68,6 +68,11 @@ void Floor::resetRequests() {
             hasDownRequest = true;
             hasUpRequest = false;
         }
+        else
+        {
+            hasUpRequest = false;
+            hasDownRequest = false;
+        }
     }
 
 }
