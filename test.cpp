@@ -194,7 +194,48 @@ void test_Move()
     Move move7;
     move7.setPeopleToPickup("123",2,floor);
     cout << move7.getElevatorId() << move7.getTargetFloor()
-         << move7.getNumPeopleToPickup() << move7.getTotalSatisfaction();
+         << move7.getNumPeopleToPickup() << move7.getTotalSatisfaction() << endl;
+    
+    Floor floor2;
+    Person p1 ("0f1t3a0");
+    Person p2 ("0f1t5a0");
+    Person p3 ("0f1t7a0");
+    floor2.addPerson(p1, 2);
+    floor2.addPerson(p2, 4);
+    floor2.addPerson(p3, 6);
+    Move move8;
+    move8.setPeopleToPickup("012",1,floor2);
+    cout << "Expected: -1 7 3 30, Actual: ";
+    cout << move8.getElevatorId() << " " << move8.getTargetFloor() << " "
+         << move8.getNumPeopleToPickup() << " "
+         << move8.getTotalSatisfaction() << endl;
+    
+    Floor floor3;
+    Person p5 ("0f3t4a1");
+    Person p6 ("0f3t5a2");
+    Person p7 ("0f3t7a3");
+    Person p8 ("0f3t4a0");
+    Person p9 ("0f3t1a5");
+    Person p10 ("0f3t2a0");
+    floor3.addPerson(p5, 1);
+    floor3.addPerson(p6, 2);
+    floor3.addPerson(p7, 4);
+    floor3.addPerson(p8, 1);
+    floor3.addPerson(p9, 2);
+    floor3.addPerson(p10, 1);
+    Move move9;
+    move9.setPeopleToPickup("014",3,floor3);
+    cout << "Expected: -1 1 3 22, Actual: ";
+    cout << move9.getElevatorId() << " " << move9.getTargetFloor() << " "
+         << move9.getNumPeopleToPickup() << " "
+         << move9.getTotalSatisfaction() << endl;
+    
+    Move move10;
+    move10.setPeopleToPickup("035",3,floor3);
+    cout << "Expected: -1 4 3 29, Actual: ";
+    cout << move10.getElevatorId() << " " << move10.getTargetFloor() << " "
+         << move10.getNumPeopleToPickup() << " "
+         << move10.getTotalSatisfaction() << endl;
     
     
     Elevator ele1 = Elevator();
