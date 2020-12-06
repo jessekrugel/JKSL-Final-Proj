@@ -98,7 +98,7 @@ void Move::setPeopleToPickup(const string& pickupList, const int currentFloor,
         
         if (difference > maxDifference){
             maxDifference = difference;
-            furthestTravel = tempTargetFloor;
+            targetFloor = tempTargetFloor;
         }
     }
 
@@ -115,7 +115,6 @@ void Move::setPeopleToPickup(const string& pickupList, const int currentFloor,
         }
     }
     */
-    targetFloor = furthestTravel;
 }
 
 //////////////////////////////////////////////////////
