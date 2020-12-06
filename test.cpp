@@ -9,11 +9,13 @@ using namespace std;
 void test_Person();
 void test_Elevator();
 void test_Floor();
+void test_Building();
 
 void start_tests() {
     test_Person();
     test_Elevator();
     test_Floor();
+    test_Building();
 }
 
 void test_Person()
@@ -78,4 +80,34 @@ void test_Floor()
         cout << floor.getPersonByIndex(i) << endl;
     }
     cout << endl;
+}
+
+void test_Building()
+{
+    cout << "Now testing the Building class!" << endl;
+    
+    //Testing spawnPerson()
+    Building building;
+    Floor floor;
+    Person p0 = Person("3f4t8a1");
+    Person p1 = Person("5f4t2a4");
+    Person p2 = Person("5f4t5a2");
+    Person p3 = Person("5f4t7a5");
+    Person p4 = Person("5f4t1a4");
+    floor.addPerson(p0, 4);
+    floor.addPerson(p1, -2);
+    floor.addPerson(p2, 1);
+    floor.addPerson(p3, 3);
+    building.spawnPerson(p4);
+    
+    for (int i = 0; i < floor.getNumPeople(); i++)
+    {
+        cout << floor.getPersonByIndex(i) << endl;
+    }
+    
+    
+    
+    
+    
+    
 }
