@@ -81,14 +81,49 @@ void test_Floor()
     {
         cout << floor.getPersonByIndex(i) << endl;
     }
-    
+    Floor floor2;
+    floor2.addPerson(p0, 4);
+    floor2.addPerson(p1, -2);
+    floor2.addPerson(p2, 1);
+    floor2.addPerson(p3, 3);
+    floor2.addPerson(p4, -3);
     int remove2[3] = {0,4,2};
-    floor.removePeople(remove2, 3);
+    floor2.removePeople(remove2, 3);
+    cout << "Testing non-sorted" << endl;
     cout << "Expected:" << endl << p1 << endl << p3 << endl
          << "Actual:" << endl;
-    for (int i = 0; i < floor.getNumPeople(); i++)
+    for (int i = 0; i < floor2.getNumPeople(); i++)
     {
-        cout << floor.getPersonByIndex(i) << endl;
+        cout << floor2.getPersonByIndex(i) << endl;
+    }
+    cout << endl;
+    
+    Person p10 = Person("3f4t8a0");
+    Person p11 = Person("5f4t2a1");
+    Person p12 = Person("5f4t5a2");
+    Person p13 = Person("5f4t7a3");
+    Person p14 = Person("5f4t1a4");
+    Person p15 = Person("5f4t1a5");
+    Person p16 = Person("5f4t1a6");
+    Person p17 = Person("5f4t1a7");
+    Person p18 = Person("5f4t1a8");
+    Floor floor3;
+    floor3.addPerson(p10, 4);
+    floor3.addPerson(p11, -2);
+    floor3.addPerson(p12, 1);
+    floor3.addPerson(p13, 3);
+    floor3.addPerson(p14, -3);
+    floor3.addPerson(p15, -3);
+    floor3.addPerson(p16, -3);
+    floor3.addPerson(p17, -3);
+    floor3.addPerson(p18, -3);
+    //int remove3[4] = {0,3,7,8};
+    int remove6[4] = {3,2,1,5};
+    floor3.removePeople(remove6, 4);
+    cout << "Testing blocks" << endl;
+    for (int i = 0; i < floor3.getNumPeople(); i++)
+    {
+        cout << floor3.getPersonByIndex(i) << endl;
     }
     cout << endl;
 }

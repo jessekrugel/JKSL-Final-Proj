@@ -18,34 +18,25 @@ int Floor::tick(int currentTime) {
     return index;
 }
 
-void Floor::addPerson(Person p, int request) {
+void Floor::addPerson(Person newPerson, int request) {
     if (numPeople < MAX_PEOPLE_PER_FLOOR) {
-            people[numPeople] = p;
+            people[numPeople] = newPerson;
             numPeople++;
     }
     if (request > 0){
         hasUpRequest = true;
-        hasDownRequest = false;
     }
     else if (request < 0){
         hasDownRequest = true;
-        hasUpRequest = false;
     }
+    resetRequests();
 }
 
 void Floor::removePeople(int indicesToRemove[MAX_PEOPLE_PER_FLOOR],
                          int numPeopleToRemove) {
-    for (int i = 0; i < numPeopleToRemove-1; i++)
-    {
-        if (indicesToRemove[i] > indicesToRemove[i+1])
-        {
-            int temp = indicesToRemove[i];
-            indicesToRemove[i] = indicesToRemove[i+1];
-            indicesToRemove[i+1] = temp;
-        }
-    }
+    sort(indicesToRemove, indicesToRemove + numPeopleToRemove);
     int removeCounter = 0;
-    for (int i = 0; i < numPeopleToRemove-1; i++)
+    for (int i = 0; i < numPeopleToRemove; i++)
     {
         int personToRemove = indicesToRemove[i];
         for (int j = personToRemove - removeCounter; j < numPeople - 1; j++)
@@ -57,24 +48,51 @@ void Floor::removePeople(int indicesToRemove[MAX_PEOPLE_PER_FLOOR],
     }
     resetRequests();
 }
+/*
 
-void Floor::resetRequests() {
-    for (int i = 0; i < numPeople; i++) {
-        if (people[i].getTargetFloor() - people[i].getCurrentFloor() > 0) {
-            hasUpRequest = true;
-            hasDownRequest = false;
-        }
-        else if (people[i].getTargetFloor() - people[i].getCurrentFloor() < 0) {
-            hasDownRequest = true;
-            hasUpRequest = false;
+void Floor::removePeople(int indicesToRemove[MAX_PEOPLE_PER_FLOOR],
+                            int numPeopleToRemove) {
+    sort(indicesToRemove, indicesToRemove + numPeopleToRemove);
+    Person remove[MAX_PEOPLE_PER_FLOOR];
+    int removeCounter = 0;
+    int counter = 0;
+    int otherCounter = 0;
+    int personToRemove = indicesToRemove[counter];
+    for (int j = 0; j < numPeople; j++)
+    {
+        if (j != personToRemove)
+        {
+            remove[otherCounter] = people[j];
+            otherCounter++;
         }
         else
         {
-            hasUpRequest = false;
-            hasDownRequest = false;
+            if(counter < numPeopleToRemove-1)
+            {
+                counter++;
+                personToRemove = indicesToRemove[counter];
+            }
         }
     }
-
+    numPeople -= numPeopleToRemove;
+    removeCounter++;
+    for (int k = 0; k < numPeople; k++)
+    {
+        people[k] = remove[k];
+    }
+}
+*/
+void Floor::resetRequests() {
+    hasUpRequest = false;
+    hasDownRequest = false;
+    for (int i = 0; i < numPeople; i++) {
+        if (people[i].getTargetFloor() - people[i].getCurrentFloor() > 0) {
+            hasUpRequest = true;
+        }
+        else if (people[i].getTargetFloor() - people[i].getCurrentFloor() < 0) {
+            hasDownRequest = true;
+        }
+    }
 }
 
 //////////////////////////////////////////////////////
