@@ -50,17 +50,27 @@ bool Move::isValidMove(Elevator elevators[NUM_ELEVATORS]) const {
     {
         return true;
     }
-    if (isPickup || (elevatorId != -1))
+    else if (isPickup)
     {
-        if ((elevatorId >= 0) && (elevatorId < NUM_ELEVATORS) && elevators[elevatorId].isServicing())
+        if ((elevatorId >= 0) && (elevatorId < NUM_ELEVATORS)
+            && elevators[elevatorId].isServicing())
         {
             return true;
         }
     }
+    else if ((elevatorId != -1) && (targetFloor >= 0)
+             && (targetFloor < NUM_FLOORS)
+             && (targetFloor != elevators[elevatorId].getCurrentFloor())
+             && (elevatorId >= 0) && (elevatorId < NUM_ELEVATORS)
+             && elevators[elevatorId].isServicing())
+    {
+        return true;
+    }
     return false;
 }
 
-void Move::setPeopleToPickup(const string& pickupList, const int currentFloor, const Floor& pickupFloor) {
+void Move::setPeopleToPickup(const string& pickupList, const int currentFloor,
+                             const Floor& pickupFloor) {
 
     numPeopleToPickup = 0;
     totalSatisfaction = 0;
