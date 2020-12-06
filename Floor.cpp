@@ -24,9 +24,11 @@ void Floor::addPerson(Person p, int request) {
     }
     if (request > 0){
         hasUpRequest = true;
+        hasDownRequest = false;
     }
     else if (request < 0){
         hasDownRequest = true;
+        hasUpRequest = false;
     }
 }
 
