@@ -20,7 +20,7 @@ void Building::update(Move move){
     if ((move.isPickupMove()) || (move.getTargetFloor() != -1))
     {
         elevators[move.getElevatorId()].serviceRequest(move.getTargetFloor());
-        elevators[move.getElevatorId()].tick(time);
+        //elevators[move.getElevatorId()].tick(time);
     }
 }
 
