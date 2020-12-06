@@ -15,9 +15,9 @@ void test_Move();
 void start_tests() {
     //test_Person();
     //test_Elevator();
-    //test_Floor();
+    test_Floor();
     //test_Building();
-    test_Move();
+    //test_Move();
 }
 
 void test_Person()
@@ -75,6 +75,15 @@ void test_Floor()
     }
     int remove[3] = {0,2,4};
     floor.removePeople(remove, 3);
+    cout << "Expected:" << endl << p1 << endl << p3 << endl
+         << "Actual:" << endl;
+    for (int i = 0; i < floor.getNumPeople(); i++)
+    {
+        cout << floor.getPersonByIndex(i) << endl;
+    }
+    
+    int remove2[3] = {0,4,2};
+    floor.removePeople(remove2, 3);
     cout << "Expected:" << endl << p1 << endl << p3 << endl
          << "Actual:" << endl;
     for (int i = 0; i < floor.getNumPeople(); i++)
