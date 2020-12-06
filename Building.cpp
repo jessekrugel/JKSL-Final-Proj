@@ -13,7 +13,11 @@ void Building::update(Move move){
     {
         int toPickup[MAX_PEOPLE_PER_FLOOR];
         move.copyListOfPeopleToPickup(toPickup);
-        floors[].removePeople(toPickup, move.getNumPeopleToPickup());
+        for (int i = 0; i < NUM_FLOORS; i++)
+        {
+            elevators[i].serviceRequest(i);
+            floors[i].removePeople(toPickup, move.getNumPeopleToPickup());
+        }
     }
 }
 
