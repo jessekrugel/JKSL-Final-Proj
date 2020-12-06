@@ -118,7 +118,7 @@ void test_Move()
     //Default Constructor
     cout << "Now testing the Move class!" << endl;
     Move move;
-    cout << "Expected: 0000, Actual: ";
+    cout << "Expected: -1-100, Actual: ";
     cout << move.getElevatorId() << move.getTargetFloor()
          << move.getNumPeopleToPickup() << move.getTotalSatisfaction() << endl;
 }
