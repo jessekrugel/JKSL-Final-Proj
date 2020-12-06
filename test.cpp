@@ -121,6 +121,29 @@ void test_Move()
     cout << "Expected: -1-100, Actual: ";
     cout << move.getElevatorId() << move.getTargetFloor()
          << move.getNumPeopleToPickup() << move.getTotalSatisfaction() << endl;
+    
     Move move1 = Move("e1f3");
+    cout << "Expected: 13, Actual: ";
     cout << move1.getElevatorId() << move1.getTargetFloor() << endl;
+    
+    Move move2 = Move("e3p");
+    cout << "Expected: 31, Actual: ";
+    cout << move2.getElevatorId() << move2.isPickupMove() << endl;
+    
+    Move move3 = Move("E5p");
+    cout << "Expected: 51, Actual: ";
+    cout << move3.getElevatorId() << move3.isPickupMove() << endl;
+    
+    Move move4 = Move("S");
+    cout << "Expected: 1, Actual: ";
+    cout << move4.isSaveMove() << endl;
+    
+    Move move5 = Move("Q");
+    cout << "Expected: 1, Actual: ";
+    cout << move5.isQuitMove() << endl;
+    
+    Move move6 = Move("s");
+    cout << "Expected: 1, Actual: ";
+    cout << move6.isSaveMove() << endl;
+    
 }
